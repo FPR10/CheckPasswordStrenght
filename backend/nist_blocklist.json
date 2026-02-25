@@ -1,0 +1,44 @@
+{
+  "_meta": {
+    "standard": "NIST SP 800-63B §5.1.1.2",
+    "description": "Password blocklist for offline validation. In production replace/extend with the full HIBP SHA-1 dataset (https://haveibeenpwned.com/Passwords).",
+    "sources": ["HIBP Top 100k", "SecLists common-credentials", "NIST banned list"]
+  },
+
+  "common_passwords": [
+    "123456", "12345", "1234", "1234567", "12345678", "123456789", "1234567890",
+    "0987654321", "987654321", "111111", "000000", "123123", "654321",
+    "qwerty", "qwertyuiop", "asdfghjkl", "zxcvbnm",
+    "password", "password1", "password!", "Password1", "Password123",
+    "passw0rd", "p@ssword", "p@ssw0rd",
+    "admin", "admin123", "root", "toor",
+    "letmein", "welcome", "welcome1", "changeme",
+    "abc", "abc123", "abcdef",
+    "monkey", "dragon", "master", "shadow", "superman", "batman", "ninja",
+    "michael", "charlie", "donald", "football", "baseball", "jesus",
+    "mustang", "access", "trustno1", "hunter", "freedom",
+    "iloveyou", "sunshine", "princess", "love", "secret",
+    "hello", "pass", "test", "guest", "login", "user",
+    "summer", "winter", "spring", "autumn",
+    "computer", "security", "internet",
+    "facebook", "google", "twitter", "linkedin", "instagram"
+  ],
+
+  "keyboard_walks": {
+    "description": "Sequences of adjacent keys on a QWERTY keyboard layout.",
+    "rows": {
+      "top":    ["qwertyuiop", "qwerty", "wertyu", "ertyui", "rtyuio", "tyuiop"],
+      "middle": ["asdfghjkl", "asdfgh", "sdfghj", "dfghjk", "fghjkl"],
+      "bottom": ["zxcvbnm", "zxcvbn", "xcvbnm"]
+    },
+    "diagonals": ["qweasd", "qweasdzxc", "wedsxz", "edcxza"],
+    "numpad":   ["1qaz", "2wsx", "3edc", "4rfv", "5tgb", "6yhn", "7ujm"]
+  },
+
+  "contextual_words": {
+    "description": "Words semantically tied to authentication contexts. NIST §5.1.1.2 requires blocking service-name and context-specific terms.",
+    "authentication": ["password", "passwd", "passphrase", "login", "logout", "signin", "signup"],
+    "roles":          ["admin", "administrator", "root", "superuser", "user", "guest", "operator"],
+    "greetings":      ["welcome", "access", "enter", "letmein", "changeme", "newpassword"]
+  }
+}
